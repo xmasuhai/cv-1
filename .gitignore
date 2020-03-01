@@ -1,0 +1,12 @@
+/public/
+/themes/*/.git
+/themes/beautifulhugo/
+/.ignore/
+/static/backUp/demo-test/*/.git
+node_modules
+/node_modules/
+.DS_Store
+.idea
+.vscode
+/.cache
+/node_modules/
