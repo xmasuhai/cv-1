@@ -117,15 +117,27 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"main.js":[function(require,module,exports) {
+})({"main_log.js":[function(require,module,exports) {
 var html = document.querySelector("#html");
-var string = "\n/*\n** \u4F60\u597D,\u6211\u662F\u4E00\u540D\u524D\u7AEF\u65B0\u4EBA\n** \u63A5\u4E0B\u6765,\u6211\u5C55\u793A\u4E00\u4E0B\u6211\u7684\u524D\u7AEF\u529F\u5E95\n** \u9996\u5148\u6211\u8981\u51C6\u5907\u4E00\u4E2Adiv\n**/\n#div1{\n   border: 1px solid red;\n   width: 200px;\n   height: 200px;\n}\n/* \u63A5\u4E0B\u6765\u6211\u628A div \u53D8\u6210\u4E00\u4E2A\u516B\u5366\u56FE\n* \u6CE8\u610F\u770B\u597D\u4E86\n* \u9996\u5148\uFF0C\u628A div \u53D8\u6210\u4E00\u4E2A\u5706\n**/\n#div1{\n   border-radius: 50%;\n   box-shadow: 0 0 3px rgba(0,0,0,0.5);\n   border: none;\n}\n/* \u516B\u5366\u662F\u9634\u9633\u5F62\u6210\u7684\n* \u4E00\u9ED1\u4E00\u767D\n**/\n#div1{\n   background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);\n}\n/* \u52A0\u4E24\u4E2A\u795E\u79D8\u7684\u5C0F\u7403 */\n#div1::before{\n   width: 100px;\n   height: 100px;\n   top: 0;\n   left: 50%;\n   transform: translateX(-50%);\n   background: #000;\n   border-radius: 50%;\n   background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);\n}\n#div1::after{\n   width: 100px;\n   height: 100px;\n   bottom: 0;\n   left: 50%;\n   transform: translateX(-50%);\n   background: #fff;\n   border-radius: 50%;\n   background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%, rgba(0,0,0,1) 100%);\n}\n";
-var string2 = "";
-var n = 0;
+var style = document.querySelector("#style");
+var string = "\n/*\n** \u4F60\u597D,\u6211\u662F\u4E00\u540D\u524D\u7AEF\u65B0\u4EBA\n** \u63A5\u4E0B\u6765,\u6211\u8981\u5F00\u59CB\u52A0\u6837\u5F0F\u4E86\n** \u6211\u8981\u52A0\u7684\u6837\u5F0F\u662F\n*/\nbody{\n    color: red;\n}\n";
+var string2 = ""; // string = string.replace(/\n/g, "<br>");
+
+var n = 0; // string[n]下标
+// html.innerHTML = ""; //string[n]; //string.substring(0, n); // 初始 // 把`string[n]`换为`string.substring(0,n)` 显示完整字符串，即显示从`0`个到`n`个字符串
+// console.log(string.length);
+// console.log(html.innerHTML)
+
+/* 用递归的setTimeout实现 封装进一个函数 */
 
 var step = function step() {
+  // console.log("1s后把" + n + "加1并显示" + string[n]);
   setTimeout(function () {
+    // console.log(n);
+    // n = n + 1; //放到下一次循环前
+    // console.log(string[n]);
     if (string[n] === "\n") {
+      //是回车就改成<br> 累加赋值给string2
       string2 += "<br>";
     } else if (string[n] === " ") {
       // 转义缩进
@@ -136,9 +148,8 @@ var step = function step() {
     }
 
     html.innerHTML = string2;
-    style.innerHTML = string.substring(0, n);
-    window.scrollTo(0, 99999);
-    html.scrollTo(0, 99999);
+    style.innerHTML = string.substring(0, n); // console.log(string2);
+    // html.innerHTML = string.substring(0, n);
 
     if (n < string.length - 1) {
       // n不是最后一个
@@ -146,7 +157,7 @@ var step = function step() {
       step();
     } else {// n是最后一个
     }
-  }, 0);
+  }, 100);
 };
 
 step();
@@ -354,5 +365,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../../../.config/yarn/global/node_modules/parcel/src/builtins/hmr-runtime.js","main.js"], null)
-//# sourceMappingURL=/main.1f19ae8e.js.map
+},{}]},{},["../../../../../../../../.config/yarn/global/node_modules/parcel/src/builtins/hmr-runtime.js","main_log.js"], null)
+//# sourceMappingURL=/main_log.f04f02ef.js.map
