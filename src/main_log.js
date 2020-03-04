@@ -40,7 +40,7 @@ html {
     background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);
 }
 
-/* 
+/*
 ** 加两个神秘的小球
 **/
 
@@ -51,18 +51,19 @@ html {
     transform: translateX(-50%);
     border: 1px solid whitesmoke;
     border-radius: 50%;
-    border:none;
 }
 #div1::before{
     top: 0;
     background: #000;
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);
+    border:none;
 }
 #div1::after{
     bottom: 0;
     left: 50%;
     background: #fff;
     background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%, rgba(0,0,0,1) 100%);
+    border:none;
 }
 
 /*加点阴影效果吧*/
@@ -125,6 +126,7 @@ let step = () => {
         html.innerHTML = string2;
         style.innerHTML = string.substring(0, n);
         window.scrollTo(0, 9999);
+        html.scrollTo(0, 9999);
         // console.log(string2);
         // html.innerHTML = string.substring(0, n);
         if (n < string.length - 1) {

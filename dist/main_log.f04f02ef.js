@@ -120,7 +120,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"main_log.js":[function(require,module,exports) {
 var html = document.querySelector("#html");
 var style = document.querySelector("#style");
-var string = "\n/*\n** \u4F60\u597D,\u6211\u662F\u4E00\u540D\u524D\u7AEF\u65B0\u4EBA\n** \u63A5\u4E0B\u6765,\u6211\u8981\u5F00\u59CB\u52A0\u6837\u5F0F\u4E86\n** \u6211\u8981\u52A0\u7684\u6837\u5F0F\u662F\n*/\nbody{\n    color: red;\n}\n";
+var string = "/*\n** \u4F60\u597D,\u6211\u662F\u4E00\u540D\u524D\u7AEF\n** \u63A5\u4E0B\u6765,\u6211\u8981\u6F14\u793A\u6211\u7684\u524D\u7AEF\u529F\u5E95\n** \u6211\u8981\u52A0\u7684\u6837\u5F0F,\u5982\u4E0B\n*/\n\n/* \u767D\u8272\u80CC\u666F\u592A\u5355\u8C03\u4E86\uFF0C\u6211\u4EEC\u6765\u70B9\u80CC\u666F */\nhtml {\n    background: rgba(200,200,200,0.8);\n}\n\n/* \u51C6\u5907\u4E00\u4E2Adiv */\n\n#div1{\n    border: 1px solid whitesmoke;\n    width: 400px;\n    height: 400px;\n}\n\n/* \n** \u63A5\u4E0B\u6765\u6211\u628A div \u53D8\u6210\u4E00\u4E2A\u516B\u5366\u56FE\n** \u6CE8\u610F\u770B\u597D\u4E86\n** \u9996\u5148\uFF0C\u628A div \u53D8\u6210\u4E00\u4E2A\u5706\n**/\n\n#div1{\n    border-radius: 50%;\n    box-shadow: 0 0 3px rgba(0,0,0,0.5);\n    border: none;\n}\n\n/* \u516B\u5366\u662F\u9634\u9633\u5F62\u6210\u7684\n** \u4E00\u9ED1\u4E00\u767D\n** \u7528\u4E2A\u80CC\u666F\u6E10\u53D8\u5427 gradient background generator https://cssgradient.io/\n**/\n\n#div1{\n    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);\n}\n\n/*\n** \u52A0\u4E24\u4E2A\u795E\u79D8\u7684\u5C0F\u7403\n**/\n\n#div1::before,#div1::after{\n    width: 100px;\n    height: 100px;\n    left: 50%;\n    transform: translateX(-50%);\n    border: 1px solid whitesmoke;\n    border-radius: 50%;\n}\n#div1::before{\n    top: 0;\n    background: #000;\n    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);\n    border:none;\n}\n#div1::after{\n    bottom: 0;\n    left: 50%;\n    background: #fff;\n    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%, rgba(0,0,0,1) 100%);\n    border:none;\n}\n\n/*\u52A0\u70B9\u9634\u5F71\u6548\u679C\u5427*/\n#div1{\n    box-shadow: 0 0 18px 18px #666666;\n}\n\n/*\u8BA9\u592A\u6781\u56FE\u8F6C\u8D77\u6765\u5427*/\n#div1{\n    animation: 5s linear infinite  taiJi;\n}\n@keyframes taiJi{\n    from{\n        left: 50%;\n        transform : translateX(-50%) rotate(0deg);\n    }\n    to{\n        left: 50%;\n        transform : translateX(-50%) rotate(360deg);\n    }\n}\n\n/* \n** \u4E00\u4E2A\u516B\u5366\u7EC8\u4E8E\u5B8C\u6210\u4E86\n** \u6E90\u7801\uFF1Ahttps://github.com/FrankFang/cv-1\n** \u6548\u679C\uFF1Ahttp://fangyinghang.com/cv-1/dist/index.html\n** \u8C22\u8C22\u8010\u5FC3\u770B\u5B8C\n** \u8FD9\u662F\u6211\u7684:\u8054\u7CFB \u4E3B\u9875 \u7B80\u5386 XXX\n*/\n\n\n\n\n\n\n";
 var string2 = ""; // string = string.replace(/\n/g, "<br>");
 
 var n = 0; // string[n]下标
@@ -148,7 +148,9 @@ var step = function step() {
     }
 
     html.innerHTML = string2;
-    style.innerHTML = string.substring(0, n); // console.log(string2);
+    style.innerHTML = string.substring(0, n);
+    window.scrollTo(0, 9999);
+    html.scrollTo(0, 9999); // console.log(string2);
     // html.innerHTML = string.substring(0, n);
 
     if (n < string.length - 1) {
@@ -157,7 +159,7 @@ var step = function step() {
       step();
     } else {// n是最后一个
     }
-  }, 100);
+  }, 0);
 };
 
 step();
@@ -189,7 +191,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56406" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57159" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

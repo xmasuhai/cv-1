@@ -11,7 +11,9 @@
 <body>
     <style id="style"></style>
     <style>
-        * {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -39,6 +41,26 @@
             width: 200px;
             height: 200px;
             position: absolute;
+        }
+        
+        @media (max-width:500px) {
+            #html {
+                /* 上一半 */
+                width: 100vw;
+                height: 40vh;
+                overflow: auto;
+                /* border: 1px solid red; */
+            }
+            #div1Wrapper {
+                /* 下一半 */
+                height: 60vh;
+                /* border: 1px solid red; */
+            }
+            #div1 {
+                position: relative;
+                top: 5px;
+                right: 0;
+            }
         }
     </style>
     <div id="html"></div>
