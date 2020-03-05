@@ -33,7 +33,7 @@ html {
 
 /* 八卦是阴阳形成的
 ** 一黑一白
-** 用个背景渐变吧 gradient background generator https://cssgradient.io/
+** 用个背景渐变吧 gradient background generator 链接: https://cssgradient.io/
 **/
 
 #div1{
@@ -90,8 +90,8 @@ html {
 
 /*
 ** 一个八卦终于完成了
-** 源码：https://github.com/FrankFang/cv-1
-** 效果：http://fangyinghang.com/cv-1/dist/index.html
+** 源码：https://github.com/xmasuhai/cv-1
+** 效果：http://xmasuhai.xyz/cv-1/dist/index.html
 ** 谢谢耐心看完
 ** 这是我的:联系 主页 简历 XXX
 */
