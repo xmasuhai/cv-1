@@ -1,0 +1,2 @@
+*,:after,:before{margin:0;padding:0;box-sizing:border-box}#html{text-overflow:ellipsis;overflow-y:visible;word-wrap:break-word;word-break:break-word;width:50vw;height:100vh}#div1{position:fixed;top:50px;right:50px}#div1:after,#div1:before{content:"";display:block;width:200px;height:200px;position:absolute}@media (max-width:500px){#html{width:100vw;height:40vh;overflow:auto}#div1Wrapper{width:100vw;height:60vh}#div1{position:relative;top:8px;right:2px}}
+/*# sourceMappingURL=style.501fcec9.css.map */

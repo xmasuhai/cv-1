@@ -1,54 +1,52 @@
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
-}
-
-* {
     box-sizing: border-box;
 }
 
-*::after {
-    box-sizing: border-box;
-}
-
-*::before {
-    box-sizing: border-box;
-}
-
-#demo {
-    word-break: break-all;
+#html {
+    text-overflow: ellipsis;
+    overflow-y: visible;
+    word-wrap: break-word;
+    word-break: break-word;
+    width: 50vw;
+    height: 100vh;
 }
 
 #div1 {
     position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 20px;
+    top: 50px;
+    right: 50px;
 }
 
-#div1::before {
-    content: "";
-    display: block;
-    position: absolute;
-}
-
+#div1::before,
 #div1::after {
     content: "";
     display: block;
+    width: 200px;
+    height: 200px;
     position: absolute;
 }
 
 @media (max-width: 500px) {
     #html {
-        height: 50vh;
+        /* 上一半 */
+        width: 100vw;
+        height: 40vh;
         overflow: auto;
+        /* border: 1px solid red; */
     }
     #div1Wrapper {
-        height: 50vh;
+        /* 下一半 */
+        width: 100vw;
+        height: 60vh;
+        /* border: 1px solid red; */
     }
     #div1 {
         position: relative;
-        top: 0;
-        right: 0;
+        top: 8px;
+        right: 2px;
     }
 }
